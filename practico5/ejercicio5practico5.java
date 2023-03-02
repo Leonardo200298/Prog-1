@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class ejercicio5practico4 {
+public class ejercicio5practico5 {
     public static void main(String[] args) {
         /*
          * Escribir un programa que mientras que el usuario ingrese un número entero
