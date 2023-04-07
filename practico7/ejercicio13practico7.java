@@ -18,7 +18,7 @@ public class ejercicio13practico7 {
             imprimir_arreglo_secuencias_int(arr);
             System.out.println("ingrese un numero");
             numero = Integer.valueOf(entrada.readLine());
-            eliminar_secuencia(arr, numero);
+            metodo_final(arr, numero);
             imprimir_arreglo_secuencias_int(arr);
         } catch (Exception exc) {
             System.out.println(exc);
@@ -46,19 +46,21 @@ public class ejercicio13practico7 {
         System.out.print("\n");
     }
 
-    public static void eliminar_secuencia(int[] arr, int numero) {
+    public static void metodo_final(int [] arr, int numero){
         int fin = 0;
-        int inicio = encontrar_ini(arr, fin);
-        int tamano;
-        while (inicio != -1) {
-            fin = encontrar_fin(arr, inicio);
-            if (fin != -1) {
-                tamano = contar_secuencia(arr, inicio, fin);
-                if (tamano == numero) {
-                    corrimiento_izq(arr, inicio, fin, numero);
+        int inicio = encontrar_ini(arr,fin);
+        int secuencia = 0;
+        while(inicio != -1){
+            fin = encontrar_fin(arr,inicio);
+            if(fin != -1){
+                secuencia = contar_secuencia(arr,inicio,fin);
+                if(secuencia == numero){
+                    for(int i = 0; i <= secuencia; i++){
+                        corrimiento_izq(arr,inicio,fin);
+                    }
                 }
-                inicio = encontrar_ini(arr, fin + 1);
             }
+            inicio = encontrar_ini(arr,fin+1);
         }
     }
 
@@ -95,11 +97,11 @@ public class ejercicio13practico7 {
         return contador;
     }
 
-    public static void corrimiento_izq(int[] arr, int ini, int fin, int numero) {
-        for (int j = 0; j <= numero; j++) {
+    public static void corrimiento_izq(int[] arr, int ini, int fin) {
+       
             for (int i = ini; i <= fin; i++) {
                 arr[i] = arr[i + 1];
             }
-        }
+        
     }
 }
