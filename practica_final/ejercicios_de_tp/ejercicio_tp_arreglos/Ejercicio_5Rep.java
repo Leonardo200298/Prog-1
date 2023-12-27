@@ -15,7 +15,12 @@ public class Ejercicio_5Rep {
         imprimir_arreglo(arreglo);
     }
     private static void ordenar_segun_ejercicio(char[] arreglo) {
-
+        char temp = ' ';
+        for (int i = 0; i < MAX/2; i++) {
+            temp = arreglo[MAX - 1 - i];
+            arreglo[i] = temp;
+            arreglo[MAX - 1 - i] = arreglo[i];
+        }
         
     }
     public static void cargar_arreglo(char [] arr){
