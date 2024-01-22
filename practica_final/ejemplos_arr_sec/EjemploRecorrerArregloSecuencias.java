@@ -1,4 +1,4 @@
-package practica_final.ejemplo_arr_sec;
+package practica_final.ejemplos_arr_sec;
 
 public class EjemploRecorrerArregloSecuencias {
     public static final int MAX = 21, SEPARADOR = -1, N = 2;
