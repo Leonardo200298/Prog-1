@@ -26,7 +26,7 @@ public class Ejercicio_9 {
             valor = Integer.valueOf(entrada.readLine());
             ingresa_valor_en_posicion_cero(arreglo,valor);
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e);
         }
         imprimir_arreglo_int(arreglo);
 
