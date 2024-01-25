@@ -31,42 +31,48 @@ public class Ejercicio_10 {
         } catch (Exception e) {
             System.out.println(e);
         }
-        imprimir_arreglo_int(arreglo);
+        imprimir_arreglo_int2(arreglo);
     }
 
     public static void metodo_resolucion(int[] arreglo, int numero) {
-        int pos = encontrar_posicion(arreglo,numero);
+        int pos = encontrar_posicion(arreglo, numero);
         int indice = 0;
         while (pos < MAX - 1 && indice < MAX - 1) {
             corrimiento_izq(arreglo, pos);
             pos = encontrar_posicion(arreglo, numero);
-            indice ++;
+            indice++;
         }
         if (pos == MAX - 1) {
             corrimiento_izq(arreglo, pos);
         }
     }
+
     public static void corrimiento_izq(int[] arr, int pos) {
-        
+
         while (pos < MAX - 1) {
             arr[pos] = arr[pos + 1];
             pos++;
-           
+
         }
-        
-       /*  if (pos < MAX - 1) {
-            arr[pos] = arr[pos - 1];
-        } */
+
     }
-    
-    
-    public static int encontrar_posicion(int [] arr, int valor){
+
+    public static int encontrar_posicion(int[] arr, int valor) {
         int pos = 0;
-        while(MAX > pos && arr[pos] != valor){
-            pos ++;
+        
+        while (MAX > pos && arr[pos] != valor) {
+            pos++;
         }
+        if (pos > 0 && valor == arr[pos-1]){
+            while (pos > 0 && arr[pos] != valor) {
+                pos--;
+            }
+
+        }
+
         return pos;
     }
+
     public static void cargar_arreglo_aleatorio(int[] arreglo) {
         Random r = new Random();
         for (int pos = 0; pos < MAX; pos++) {
@@ -78,5 +84,13 @@ public class Ejercicio_10 {
         for (int pos = 0; pos < MAX; pos++) {
             System.out.println("nombre_arreglo[" + pos + "]=>: " + arr[pos]);
         }
+    }
+
+    public static void imprimir_arreglo_int2(int[] arr) {
+        for (int pos = 0; pos < MAX; pos++) {
+            System.out.println("nombre_arreglo[" + pos + "]=>: " + arr[pos]);
+        }
+        System.out.println("La ultima posicion es " + arr[MAX - 1]);
+
     }
 }
