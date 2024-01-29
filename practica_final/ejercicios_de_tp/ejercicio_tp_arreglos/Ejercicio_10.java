@@ -41,9 +41,15 @@ public class Ejercicio_10 {
             corrimiento_izq(arreglo, pos);
             pos = encontrar_posicion(arreglo, numero);
             indice++;
-        }
-        if (pos == MAX - 1) {
-            corrimiento_izq(arreglo, pos);
+            System.out.println("Soy el indice "+indice);
+           /*  System.out.println("Soy la posicion: "+pos);
+            System.out.println("Soy MAX-1 " + (MAX-1)); */
+           /*  if (numero == arreglo[MAX-1]) {
+
+                arreglo[pos] = arreglo[pos];
+                corrimiento_izq(arreglo, pos);
+
+            } */
         }
     }
 
@@ -59,11 +65,11 @@ public class Ejercicio_10 {
 
     public static int encontrar_posicion(int[] arr, int valor) {
         int pos = 0;
-        
+
         while (MAX > pos && arr[pos] != valor) {
             pos++;
         }
-        if (pos > 0 && valor == arr[pos-1]){
+        if (pos > 0 && valor == arr[pos - 1]) {
             while (pos > 0 && arr[pos] != valor) {
                 pos--;
             }
@@ -90,7 +96,6 @@ public class Ejercicio_10 {
         for (int pos = 0; pos < MAX; pos++) {
             System.out.println("nombre_arreglo[" + pos + "]=>: " + arr[pos]);
         }
-        System.out.println("La ultima posicion es " + arr[MAX - 1]);
 
     }
 }
