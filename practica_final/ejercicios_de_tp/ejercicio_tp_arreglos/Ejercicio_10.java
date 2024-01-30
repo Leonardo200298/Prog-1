@@ -41,18 +41,26 @@ public class Ejercicio_10 {
             corrimiento_izq(arreglo, pos);
             pos = encontrar_posicion(arreglo, numero);
             indice++;
-            System.out.println("Soy el indice "+indice);
-           /*  System.out.println("Soy la posicion: "+pos);
-            System.out.println("Soy MAX-1 " + (MAX-1)); */
-           /*  if (numero == arreglo[MAX-1]) {
+            
+        }
+       
+        if (numero == arreglo[MAX-1]) {
 
-                arreglo[pos] = arreglo[pos];
-                corrimiento_izq(arreglo, pos);
-
-            } */
+            int posDistintaOcurrencia=encontrar_posicion_de_distinto_ocurrencia(arreglo,indice,numero);
+            for (int i = posDistintaOcurrencia; i < MAX; i++) {
+                arreglo[i] = arreglo[posDistintaOcurrencia];
+            }
         }
     }
 
+    public static int encontrar_posicion_de_distinto_ocurrencia(int [] arr, int indice, int numero){
+        while (indice > 0 && arr[indice] == numero) {
+            indice--;
+            
+        }
+        return indice;
+
+    }
     public static void corrimiento_izq(int[] arr, int pos) {
 
         while (pos < MAX - 1) {
@@ -69,12 +77,7 @@ public class Ejercicio_10 {
         while (MAX > pos && arr[pos] != valor) {
             pos++;
         }
-        if (pos > 0 && valor == arr[pos - 1]) {
-            while (pos > 0 && arr[pos] != valor) {
-                pos--;
-            }
-
-        }
+      
 
         return pos;
     }
