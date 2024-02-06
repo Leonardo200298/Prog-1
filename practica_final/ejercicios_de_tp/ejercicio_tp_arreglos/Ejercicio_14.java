@@ -27,14 +27,16 @@ public class Ejercicio_14 {
         }
         if (arreglo[MAX - 1] % 2 == 0) {
             int posImpar = busqueda_de_ultimo_impar(arreglo, pos);
-            corrimiento_izq(arreglo,posImpar);
+            for (int i = posImpar; i < MAX; i++) {
+                arreglo[i] = arreglo[posImpar];
+            };
         }
     }
     public static int busqueda_de_ultimo_impar(int[] arreglo, int pos) {
         while (pos > 0 && arreglo[pos]% 2 == 0) {
             pos--;
         }
-        return pos - 1;
+        return pos;
       
     }
     public static void corrimiento_izq(int[] arreglo, int pos) {
