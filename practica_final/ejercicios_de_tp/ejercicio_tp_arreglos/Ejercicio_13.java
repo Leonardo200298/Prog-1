@@ -13,8 +13,8 @@ public class Ejercicio_13 {
     public static final int MINVALOR = 1;
 
     public static void main(String[] args) {
-        int[] arreglo = new int[MAX];
         int elemento = 2;
+        int[] arreglo = new int[MAX];
         cargar_arreglo_aleatorio(arreglo);
         imprimir_arreglo_int(arreglo);
         // ordenamiento
