@@ -2,6 +2,12 @@ package practica_final.ejercicios_de_tp.ejercicio_tp_arreglos;
 
 import java.util.Random;
 
+/* 
+Dado un arreglo de tamaño de arreglo MAX=20 de secuencias. En
+el caso de eliminar secuencias se debe hacer corrimiento.
+17. Hacer un programa que devuelva la posición de inicio y fin de la
+anteúltima secuencia de números distintos de ceros. */
+
 public class Ejercicio_17 {
 	public static final int MAX = 20;
 	public static final int SEPARADOR = 0;
@@ -17,35 +23,36 @@ public class Ejercicio_17 {
 	}
 
 	public static void InicioAnteUltimaSecuencia(int[] arreglo) {
-		/* int fin2;
-		int inicio2;
-		int inicio = (MAX - 1);
-		int fin1;
-		int inicio1;
-
-		fin2 = buscarFin(arreglo, inicio);
-		inicio2 = buscarInicio(arreglo, fin2);
-		fin1 = buscarFin(arreglo, inicio2);
-		inicio1 = buscarInicio(arreglo, fin1); */
-		 int contador = 0;
-		 int inicio = MAX - 1;
-		 int fin = 0;
-		 int iniSec = 0;
-		 int finSec = 0;
-		 fin = buscarFin(arreglo, inicio);
-		 while (fin > 0 && contador < 1){
-		 		inicio = buscarInicio(arreglo, fin);
-		 		if (fin > 0){
-		 			finSec = buscarFin(arreglo, inicio);
-		 			iniSec = buscarInicio(arreglo, finSec);	 			
-				}	 			
-				fin = buscarFin(arreglo, inicio);	 			
-				contador ++;
-		 }
+		/*
+		 * int fin2;
+		 * int inicio2;
+		 * int inicio = (MAX - 1);
+		 * int fin1;
+		 * int inicio1;
+		 * 
+		 * fin2 = buscarFin(arreglo, inicio);
+		 * inicio2 = buscarInicio(arreglo, fin2);
+		 * fin1 = buscarFin(arreglo, inicio2);
+		 * inicio1 = buscarInicio(arreglo, fin1);
+		 */
+		int contador = 0;
+		int inicio = MAX - 1;
+		int fin = 0;
+		int iniSec = 0;
+		int finSec = 0;
+		fin = buscarFin(arreglo, inicio);
+		while (fin > 0 && contador < 1) {
+			inicio = buscarInicio(arreglo, fin);
+			if (fin > 0) {
+				finSec = buscarFin(arreglo, inicio);
+				iniSec = buscarInicio(arreglo, finSec);
+			}
+			fin = buscarFin(arreglo, inicio);
+			contador++;
+		}
 
 		System.out.println("El inicio de la ante ultima secuencia es: " + (iniSec + 1) + " y el fin es "
-        + finSec
-        );
+				+ finSec);
 	}
 
 	public static int buscarInicio(int[] arr, int pos) {
