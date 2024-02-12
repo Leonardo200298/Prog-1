@@ -23,27 +23,41 @@ public class Ejercicio_18 {
     }
 
     public static void encontrar_pos_de_secuencia_mayor_tamanio(int[] arreglo) {
-        int secMayor = 0;
-        int ini = 0;
-        int fin = buscar_fin(arreglo,ini);
-        while (fin < MAX - 1) {
-            ini = buscar_inicio(arreglo, fin);
-            if (fin < MAX -1) {
+        int iniMayor = 0;
+        int finMayor = 0;
+        int fin = 0;
+        int secuenciaMayorTamanaio=0;
+        int ini = buscar_inicio(arreglo,fin);
+        while (ini < MAX) {
+            fin = buscar_fin(arreglo, ini);
+            if (ini < MAX) {
                 int tamanioSec = fin - ini + 1;
                 
+                if (secuenciaMayorTamanaio<tamanioSec){
+                    secuenciaMayorTamanaio = tamanioSec;
+                    iniMayor = ini;
+                    finMayor = fin;
+                }
             }
-            fin = buscar_fin(arreglo, ini);
+            ini = buscar_inicio(arreglo, fin+1);
         }
+        System.out.println("El inicio de la secuencia mas larga es: "
+        + iniMayor + " y el final es: " + finMayor + " y su longitud es: " + secuenciaMayorTamanaio 
+        );
     }
 
     private static int buscar_inicio(int[] arreglo, int fin) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar_inicio'");
+        while (fin < MAX && arreglo[fin] == SEPARADOR) {
+            fin++;
+        }
+        return fin;
     }
 
     private static int buscar_fin(int[] arreglo, int ini) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar_fin'");
+        while (ini < MAX && arreglo[ini] != SEPARADOR) {
+            ini++;
+        }
+        return ini-1;
     }
 
     public static void cargarSecuenciasInt(int[] arr) {
