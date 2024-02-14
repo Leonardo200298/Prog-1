@@ -1,5 +1,7 @@
 package practica_final.ejercicios_de_tp.ejercicio_tp_arreglos;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Random;
 
 public class Ejercicio_19 {
@@ -16,10 +18,55 @@ public class Ejercicio_19 {
         usuario, elimine las secuencias de tamaño N de números distintos
         de cero. */
         int arreglo[] = new int[MAX];
+		int num;
 		cargarSecuenciasInt(arreglo);
 		imprimirArreglo(arreglo);
+		try {
+			BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Ingrese longitud de secuencia: ");
+			num = Integer.valueOf(entrada.readLine());
+			eliminar_secuencia_distinta_N(arreglo, num);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		System.out.println("----------------------");
+		imprimirArreglo(arreglo);
     }
-    	public static void cargarSecuenciasInt(int[] arr) {
+	public static void eliminar_secuencia_distinta_N(int[] arreglo, int num) {
+		int fin = 0;
+		int ini = buscar_inicio(arreglo, fin);
+		while (ini < MAX){
+			fin = buscar_fin(arreglo, ini);
+			if (ini < MAX){
+				int longitud = fin - ini +1;
+				if (num == longitud){
+					for (int i = ini; i <= fin; i++) {
+						corrimiento_a_izquierda(arreglo,ini,fin);
+						
+					}
+				}
+			}
+			ini = buscar_inicio(arreglo, fin + 1);
+		}
+	}
+	public static void corrimiento_a_izquierda(int[] arreglo, int ini, int fin) {
+		for (int i = ini; i <= fin; i++) {
+			arreglo[i] = arreglo[i+1];
+		}
+	}
+	public static int buscar_inicio(int[] arreglo, int fin) {
+		while (fin < MAX && arreglo[fin] == SEPARADOR) {
+			fin++;
+		}
+		return fin;
+	}
+	public static int buscar_fin(int[] arreglo, int ini) {
+		while (ini < MAX && arreglo[ini] != SEPARADOR) {
+			ini++;
+		}
+		return ini - 1;
+	}
+		public static void cargarSecuenciasInt(int[] arr) {
 		Random r = new Random();
 		arr[0] = 0;
 		arr[MAX - 1] = 0;
