@@ -18,16 +18,57 @@ public class Ejercicio_20 {
         int patron[] = {0,0,0,1,2,3,0,0,0,0};
         
         imprimirArreglo(arreglo);
-        /* imprimirArregloPatron(patron); */
+        eliminar_ocurrencias_de_arreglo_de_secuencia_patron(arreglo, patron);
+     
+        
     }
-/* 
 
-    private static void imprimirArregloPatron(int[] patron) {
-        for (int pos = 0; pos < MAXPATRON; pos++) {
-            System.out.print("[" + patron[pos] + "]");
+
+    private static void eliminar_ocurrencias_de_arreglo_de_secuencia_patron(int[] arreglo, int[] patron) {
+        int fin = 0;
+        int ini = buscar_inicio(arreglo, fin);
+        int iniP, finP = 0;
+        boolean esLaSecuencia = false;
+        while (ini<MAX) {
+            fin = buscar_fin(arreglo, ini);
+            if (ini<MAX) {
+                
+                iniP = buscar_inicio(patron, finP);
+                finP = buscar_fin(patron, iniP);
+                esLaSecuencia = esSecuencia(arreglo,ini,fin,iniP,finP);
+                while (!esLaSecuencia) {
+                    corrimiento_izq(arreglo, ini, fin);
+                }
+            }
+            ini = buscar_inicio(arreglo, fin+1);
         }
-        System.out.println("");
-    } */
+    }
+
+
+
+    public static void corrimiento_izq(int[] arreglo, int ini, int fin) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'corrimiento_izq'");
+    }
+
+
+    public static boolean esSecuencia(int[] arreglo, int ini, int fin, int iniP, int finP) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'esSecuencia'");
+    }
+
+
+    private static int buscar_fin(int[] arreglo, int ini) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscar_fin'");
+    }
+
+
+    private static int buscar_inicio(int[] arreglo, int fin) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscar_inicio'");
+    }
+
 
     public static void imprimirArreglo(int[] arr) {
         for (int pos = 0; pos < MAX; pos++) {
