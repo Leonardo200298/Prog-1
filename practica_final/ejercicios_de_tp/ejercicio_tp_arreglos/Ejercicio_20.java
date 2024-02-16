@@ -14,61 +14,71 @@ public class Ejercicio_20 {
          * ocurrencias de una secuencia patrón dada por otro arreglo.
          * 
          */
-        int arreglo[] = {0,2,0,4,2,0,0,1,2,3,0,2,0,0,2,3,6,4,0,0};
-        int patron[] = {0,0,0,1,2,3,0,0,0,0};
-        
+        int arreglo[] = { 0, 2, 0, 4, 2, 0, 0, 1, 2, 3, 0, 2, 0, 0, 2, 3, 6, 4, 0, 0 };
+        int patron[] = { 0, 0, 0, 1, 2, 3, 0, 0, 0, 0 };
+
         imprimirArreglo(arreglo);
         eliminar_ocurrencias_de_arreglo_de_secuencia_patron(arreglo, patron);
-     
-        
-    }
+        System.out.println("----------------");
+        imprimirArreglo(arreglo);
 
+    }
 
     private static void eliminar_ocurrencias_de_arreglo_de_secuencia_patron(int[] arreglo, int[] patron) {
         int fin = 0;
         int ini = buscar_inicio(arreglo, fin);
         int iniP, finP = 0;
         boolean esLaSecuencia = false;
-        while (ini<MAX) {
+        while (ini < MAX) {
             fin = buscar_fin(arreglo, ini);
-            if (ini<MAX) {
-                
+            if (ini < MAX) {
+
                 iniP = buscar_inicio(patron, finP);
                 finP = buscar_fin(patron, iniP);
-                esLaSecuencia = esSecuencia(arreglo,ini,fin,iniP,finP);
-                while (!esLaSecuencia) {
-                    corrimiento_izq(arreglo, ini, fin);
+                esLaSecuencia = esSecuencia(arreglo, ini, fin, iniP, finP);
+                while (fin - ini + 1 == finP - iniP + 1 && !esLaSecuencia) {
+                    for (int i = ini; i <= fin; i++) {
+
+                        corrimiento_izq(arreglo, ini, fin);
+
+                    }
+                    /* ini = buscar_inicio(arreglo, fin + 1);
+                    esLaSecuencia = esSecuencia(arreglo, ini, fin, iniP, finP); */
+                    esLaSecuencia=false;
                 }
             }
-            ini = buscar_inicio(arreglo, fin+1);
+            ini = buscar_inicio(arreglo, fin + 1);
         }
     }
 
-
-
     public static void corrimiento_izq(int[] arreglo, int ini, int fin) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'corrimiento_izq'");
+        System.out.println("entre");
+        for (int i = ini; i <= fin; i++) {
+            arreglo[i] = arreglo[i + 1];
+        }
     }
-
 
     public static boolean esSecuencia(int[] arreglo, int ini, int fin, int iniP, int finP) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'esSecuencia'");
+        while (ini <= fin && iniP <= finP && arreglo[ini] == arreglo[iniP]) {
+            ini++;
+            iniP++;
+        }
+        return ini > fin;
     }
 
-
-    private static int buscar_fin(int[] arreglo, int ini) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar_fin'");
+    public static int buscar_fin(int[] arreglo, int ini) {
+        while (ini < MAX && arreglo[ini] != SEPARADOR) {
+            ini++;
+        }
+        return ini - 1;
     }
 
-
-    private static int buscar_inicio(int[] arreglo, int fin) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar_inicio'");
+    public static int buscar_inicio(int[] arreglo, int fin) {
+        while (fin < MAX && arreglo[fin] == SEPARADOR) {
+            fin++;
+        }
+        return fin;
     }
-
 
     public static void imprimirArreglo(int[] arr) {
         for (int pos = 0; pos < MAX; pos++) {
