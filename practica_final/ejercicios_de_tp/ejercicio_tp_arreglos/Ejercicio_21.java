@@ -1,67 +1,55 @@
 package practica_final.ejercicios_de_tp.ejercicio_tp_arreglos;
 
-public class Ejercicio_20 {
+public class Ejercicio_21 {
     public static final int MAX = 20;
-    public static final int MAXPATRON = 10;
     public static final int SEPARADOR = 0;
-
     public static void main(String[] args) {
         /*
-         * 20. Hacer un programa que elimine de un arreglo todas las
-         * ocurrencias de una secuencia patrón dada por otro arreglo.
-         * 
+         * 21. Hacer un programa que elimine de un arreglo todas las
+         * secuencias que tienen orden descendente entre sus elementos.
          */
-
         int arreglo[] = { 0, 2, 0, 4, 2, 0, 0, 1, 2, 3, 0, 2, 0, 0, 2, 3, 6, 4, 0, 0 };
-        int patron[] = { 0, 0, 0, 1, 2, 3, 0, 0, 0, 0 };
         imprimirArreglo(arreglo);
-        imprimirArreglo(arreglo);
-        eliminar_ocurrencias_de_arreglo_de_secuencia_patron(arreglo, patron);
+        eliminacion_de_secuencias_ordenadas_descendentemente(arreglo);
         System.out.println("----------------");
         imprimirArreglo(arreglo);
-
     }
 
-    private static void eliminar_ocurrencias_de_arreglo_de_secuencia_patron(int[] arreglo, int[] patron) {
+    public static void eliminacion_de_secuencias_ordenadas_descendentemente(int[] arreglo) {
         int fin = 0;
         int ini = buscar_inicio(arreglo, fin);
-        int finP = 0;
-        boolean esLaSecuencia = false;
-        int iniP = buscar_inicio(patron, finP);
-        finP = buscar_fin(patron, iniP);
         while (ini < MAX) {
             fin = buscar_fin(arreglo, ini);
             if (ini < MAX) {
-
-                esLaSecuencia = esSecuencia(arreglo, ini, fin, iniP, finP);
-                if (fin - ini + 1 == finP - iniP + 1 && !esLaSecuencia) {
-                    for (int i = iniP; i <= finP; i++) {
-
+                boolean esSecuenciaDescendente = secuenciaDescendente(arreglo, ini, fin);
+                if (esSecuenciaDescendente) {
+                    for (int i = ini; i <= fin; i++) {
+                        
                         corrimiento_izq(arreglo, ini, fin);
-                        /* fin = ini - 1; */
-
                     }
-
-                    esLaSecuencia = false;
                 }
             }
             ini = buscar_inicio(arreglo, fin + 1);
-            System.out.println("entre");
         }
+
     }
 
     public static void corrimiento_izq(int[] arreglo, int ini, int fin) {
-        for (int i = ini; i <= fin; i++) {
-            arreglo[i] = arreglo[i + 1];
+        while (ini<=fin) {
+            System.out.println("entre");
+            arreglo[ini] = arreglo[ini+1];
+            ini++;
         }
     }
 
-    public static boolean esSecuencia(int[] arreglo, int ini, int fin, int iniP, int finP) {
-        while (ini <= fin && iniP <= finP && arreglo[ini] == arreglo[iniP]) {
-            ini++;
-            iniP++;
+    public static boolean secuenciaDescendente(int[] arreglo, int ini, int fin) {
+        boolean ascendente = false;
+        for (int i = ini; i <= fin; i++) {
+            if (arreglo[fin] > arreglo[ini] || arreglo[fin] == arreglo[ini]){
+                ascendente = true;
+            }
         }
-        return ini > fin;
+        return ascendente;
     }
 
     public static int buscar_fin(int[] arreglo, int ini) {
