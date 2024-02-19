@@ -13,8 +13,7 @@ public class Ejercicio_20 {
          */
 
         int arreglo[] = { 0, 2, 0, 4, 2, 0, 0, 1, 2, 3, 0, 2, 0, 0, 2, 3, 6, 4, 0, 0 };
-        int patron[] = { 0, 0, 0, 1, 2, 3, 0, 0, 0, 0 };
-        imprimirArreglo(arreglo);
+        int patron[] = { 0, 0, 0, 0, 4, 2, 0, 0, 0, 0 };
         imprimirArreglo(arreglo);
         eliminar_ocurrencias_de_arreglo_de_secuencia_patron(arreglo, patron);
         System.out.println("----------------");
@@ -33,20 +32,17 @@ public class Ejercicio_20 {
             fin = buscar_fin(arreglo, ini);
             if (ini < MAX) {
 
-                esLaSecuencia = esSecuencia(arreglo, ini, fin, iniP, finP);
-                if (fin - ini + 1 == finP - iniP + 1 && !esLaSecuencia) {
+                esLaSecuencia = esSecuencia(arreglo,patron, ini, fin, iniP, finP);
+                if (fin - ini + 1 == finP - iniP + 1 && esLaSecuencia) {
                     for (int i = iniP; i <= finP; i++) {
 
                         corrimiento_izq(arreglo, ini, fin);
-                        /* fin = ini - 1; */
+
 
                     }
-
-                    esLaSecuencia = false;
                 }
             }
             ini = buscar_inicio(arreglo, fin + 1);
-            System.out.println("entre");
         }
     }
 
@@ -56,8 +52,8 @@ public class Ejercicio_20 {
         }
     }
 
-    public static boolean esSecuencia(int[] arreglo, int ini, int fin, int iniP, int finP) {
-        while (ini <= fin && iniP <= finP && arreglo[ini] == arreglo[iniP]) {
+    public static boolean esSecuencia(int[] arreglo,int[] patron, int ini, int fin, int iniP, int finP) {
+        while (ini <= fin && iniP <= finP && arreglo[ini] == patron[iniP]) {
             ini++;
             iniP++;
         }
