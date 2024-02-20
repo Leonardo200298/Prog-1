@@ -32,7 +32,6 @@ public class Ejercicio_20 {
         while (ini < MAX) {
             fin = buscar_fin(arreglo, ini);
             if (ini < MAX) {
-
                 esLaSecuencia = esSecuencia(arreglo, ini, fin, iniP, finP);
                 if (fin - ini + 1 == finP - iniP + 1 && !esLaSecuencia) {
                     for (int i = iniP; i <= finP; i++) {
@@ -41,12 +40,10 @@ public class Ejercicio_20 {
                         /* fin = ini - 1; */
 
                     }
-
                     esLaSecuencia = false;
                 }
             }
             ini = buscar_inicio(arreglo, fin + 1);
-            System.out.println("entre");
         }
     }
 
