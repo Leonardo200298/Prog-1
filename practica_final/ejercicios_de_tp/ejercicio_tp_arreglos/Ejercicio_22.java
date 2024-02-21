@@ -27,12 +27,27 @@ public class Ejercicio_22 {
         while (iniA < MAX) {
             finA = buscar_fin(arregloA, iniA);
             if (iniA < MAX) {
-                /*fijarme si una secuencia de P esta en A si es asi
-                reemplazarla por la secuencia de R
-                 */
+                if (finA - iniA + 1 == finP - iniP + 1 && secuenciasIguales(arregloA,arregloP,iniA,finA,iniP,finP)) {
+                    for (int i = iniA; i <= finA; i++) {
+                        corrimiento_a_derecha(arregloA,iniA,finA);
+                        for (int j = iniR; j <= finR; j++) {
+                            arregloA[i] = arregloR[j];
+                        }
+                    }
+                }
             }
             iniA = buscar_inicio(arregloA, finA + 1);
         }
+    }
+
+    public static void corrimiento_a_derecha(int[] arregloA, int iniA, int finA) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'corrimiento_a_derecha'");
+    }
+
+    public static boolean secuenciasIguales(int[] arregloA, int[] arregloP, int iniA, int finA, int iniP, int finP) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'secuenciasIguales'");
     }
 
     public static int buscar_fin(int[] arregloA, int iniA) {
