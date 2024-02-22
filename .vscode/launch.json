@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ejercicio_23",
+            "request": "launch",
+            "mainClass": "practica_final.ejercicios_de_tp.ejercicio_tp_arreglos.Ejercicio_23",
+            "projectName": "Prog-1_7851d77f"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio_22",
             "request": "launch",
             "mainClass": "practica_final.ejercicios_de_tp.ejercicio_tp_arreglos.Ejercicio_22",

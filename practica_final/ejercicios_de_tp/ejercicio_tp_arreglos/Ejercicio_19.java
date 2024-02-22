@@ -19,8 +19,8 @@ public class Ejercicio_19 {
 		 * usuario, elimine las secuencias de tamaño N de números distintos
 		 * de cero.
 		 */
-		int arreglo[] = new int[MAX];
 		int num;
+		int arreglo[] = new int[MAX];
 		cargarSecuenciasInt(arreglo);
 		imprimirArreglo(arreglo);
 		try {
