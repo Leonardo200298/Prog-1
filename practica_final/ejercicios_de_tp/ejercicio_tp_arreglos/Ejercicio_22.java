@@ -2,6 +2,7 @@ package practica_final.ejercicios_de_tp.ejercicio_tp_arreglos;
 
 public class Ejercicio_22 {
     public static final int MAX = 20;
+    public static final int SEPARADOR = 0;
     public static void main(String[] args) {
         /* 22. Hacer un programa que reemplace de un arreglo A todas las
         ocurrencias de una secuencia patrón dada en un arreglo P, por la
@@ -12,6 +13,7 @@ public class Ejercicio_22 {
 
         imprimirArreglo(A);
         intercambiarEnASecuenciaDePIncluidaEnR(A,P,R);
+        System.out.println("------------------");
         imprimirArreglo(A);
     }
 
@@ -28,8 +30,8 @@ public class Ejercicio_22 {
             finA = buscar_fin(arregloA, iniA);
             if (iniA < MAX) {
                 if (finA - iniA + 1 == finP - iniP + 1 && secuenciasIguales(arregloA,arregloP,iniA,finA,iniP,finP)) {
+                    corrimiento_a_derecha(arregloA,iniA,finA);
                     for (int i = iniA; i <= finA; i++) {
-                        corrimiento_a_derecha(arregloA,iniA,finA);
                         for (int j = iniR; j <= finR; j++) {
                             arregloA[i] = arregloR[j];
                         }
@@ -41,23 +43,33 @@ public class Ejercicio_22 {
     }
 
     public static void corrimiento_a_derecha(int[] arregloA, int iniA, int finA) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'corrimiento_a_derecha'");
+        for (int i = finA; i >= iniA; i--) {
+            arregloA[i] = arregloA[i - 1];
+        }
     }
 
     public static boolean secuenciasIguales(int[] arregloA, int[] arregloP, int iniA, int finA, int iniP, int finP) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'secuenciasIguales'");
+        boolean flag = false;
+        while ((iniA <= finA && iniP <= finP) && (arregloA[iniA] == arregloP[iniP])) {
+            iniA++;
+            iniP++;
+            flag = true;
+        }
+        return flag;
     }
 
-    public static int buscar_fin(int[] arregloA, int iniA) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar_fin'");
+    public static int buscar_fin(int[] arreglo, int ini) {
+        while (ini < MAX && arreglo[ini] != SEPARADOR) {
+            ini ++;
+        }
+        return ini - 1;
     }
 
-    public static int buscar_inicio(int[] arregloA, int finA) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar_inicio'");
+    public static int buscar_inicio(int[] arreglo, int fin) {
+        while (fin < MAX && arreglo[fin] == SEPARADOR) {
+            fin ++;
+        }
+       return fin;
     }
 
     public static void imprimirArreglo(int[] arr) {
