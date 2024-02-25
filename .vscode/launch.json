@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjemploImpresionCargaMatricesImpresionMatricesAleatoria",
+            "request": "launch",
+            "mainClass": "practica_final.ejercicios_de_tp.ejercicios_tp_matrices.EjemploImpresionCargaMatricesImpresionMatricesAleatoria",
+            "projectName": "Prog-1_7851d77f"
+        },
+        {
+            "type": "java",
             "name": "EjemplosImpresionCargaMatrices",
             "request": "launch",
             "mainClass": "practica_final.ejercicios_de_tp.ejercicios_tp_matrices.EjemplosImpresionCargaMatrices",
