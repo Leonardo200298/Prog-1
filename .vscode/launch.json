@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjercicioM_1",
+            "request": "launch",
+            "mainClass": "practica_final.ejercicios_de_tp.ejercicios_tp_matrices.EjercicioM_1",
+            "projectName": "Prog-1_7851d77f"
+        },
+        {
+            "type": "java",
             "name": "ContarSecuenciasDeUnaMatriz",
             "request": "launch",
             "mainClass": "practica_final.ejercicios_de_tp.ejercicios_tp_matrices.ContarSecuenciasDeUnaMatriz",

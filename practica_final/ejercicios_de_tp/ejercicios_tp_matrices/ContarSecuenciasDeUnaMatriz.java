@@ -18,7 +18,6 @@ public class ContarSecuenciasDeUnaMatriz {
     public static void iterar_matrices_como_arreglo(int[][] mat) {
         int contador = 0;
         for (int fila = 0; fila < MAXFILA; fila++) {
-
             contador += contar_secuencias_en_matriz(mat[fila]);
         }
         System.out.println("La cantidad de secuencias es: " + contador);
@@ -39,7 +38,7 @@ public class ContarSecuenciasDeUnaMatriz {
         }
         return contador;
     }
-    private static int buscar_fin(int[] matint, int ini) {
+    public static int buscar_fin(int[] matint, int ini) {
         while (ini < MAXCOLUMNA && matint[ini] != SEPARADOR) {
             ini++;
         }
