@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjercicioM_3",
+            "request": "launch",
+            "mainClass": "practica_final.ejercicios_de_tp.ejercicios_tp_matrices.EjercicioM_3",
+            "projectName": "Prog-1_5a458d5"
+        },
+        {
+            "type": "java",
             "name": "EjercicioM_2",
             "request": "launch",
             "mainClass": "practica_final.ejercicios_de_tp.ejercicios_tp_matrices.EjercicioM_2",
