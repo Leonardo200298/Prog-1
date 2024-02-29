@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Random;
 
-public class EjercicioM7 {
+public class EjercicioM_9 {
     public static final int MAXFILA = 5;
     public static final int MAXCOLUMNA = 10;
     public static final int MAXVALOR = 9;
@@ -13,64 +13,51 @@ public class EjercicioM7 {
 
     public static void main(String[] args) {
         /*
-         * 7. Hacer un programa que dada una matriz de enteros ordenada
-         * creciente por filas de tamaño 4*5 que se encuentra precargada,
-         * solicite al usuario un número entero y una fila, y luego inserte el
-         * número en la matriz en la fila indicada manteniendo su orden.
+         * 9. Hacer un programa que dada una matriz de enteros de tamaño
+         * 4*5 que se encuentra precargada, solicite al usuario el ingreso de
+         * una fila y dos números enteros (columnas de la matriz), y ordene
+         * de forma creciente la matriz en la fila indicada entre las dos
+         * posiciones columnas ingresadas.
          */
         try {
-            int numero, nroFila;
+            int nroFila, columnaIni, columnaFin;
             BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Ingrese un numero para insertar: ");
-            numero = Integer.valueOf(entrada.readLine());
-            System.out.println("Ingrese un numero de fila: ");
-            nroFila = Integer.valueOf(entrada.readLine());
             int[][] matint = new int[MAXFILA][MAXCOLUMNA];
-            System.out.println("-------------Matriz antes de insertar numero y ordenar-------------");
+            System.out.println("Ingrese numero de fila: ");
+            nroFila = Integer.valueOf(entrada.readLine());
+            System.out.println("Ingrese numero de columna de inicio: ");
+            columnaIni = Integer.valueOf(entrada.readLine());
+            System.out.println("Ingrese numero de columna de fin: ");
+            columnaFin = Integer.valueOf(entrada.readLine());
             cargar_matriz(matint);
-            ordenamiento_por_seleccion(matint[nroFila]);
+            System.out.println("------matriz antes del metodo------");
             imprimir_matriz(matint);
-            insertar_y_ordenar(matint, numero, nroFila);
-            System.out.println("-------------Matriz antes de insertar numero y ordenar-------------");
+            ordenar_entre_columna_inicio_y_columna_fin(matint[nroFila], columnaIni, columnaFin);
+            System.out.println("------matriz despues del metodo------");
             imprimir_matriz(matint);
+            
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public static void insertar_y_ordenar(int[][] matint, int numero, int fila) {
-
-        corrimiento_a_derecha(matint[fila], numero);
-        ordenamiento_por_seleccion(matint[fila]);
-
-    }
-
-    public static void ordenamiento_por_seleccion(int[] arreglo) {
+    public static void ordenar_entre_columna_inicio_y_columna_fin(int[] arreglo, int columnaIni, int columnaFin) {
+        System.out.println("La longitud de la fila es: " + arreglo.length);
         int pos_mayor, temporal;
-        for (int i = 0; i < MAXCOLUMNA; i++) {
+        for (int i = columnaIni; i < columnaFin; i++) {
             pos_mayor = i;
-            for (int j = i + 1; j < MAXCOLUMNA; j++) {
+            for (int j = i + 1; j < columnaFin; j++) {
                 if (arreglo[pos_mayor] > arreglo[j]) {
                     pos_mayor = j;
-                    
                 }
             }
-
             if (pos_mayor != i) {
                 temporal = arreglo[i];
                 arreglo[i] = arreglo[pos_mayor];
                 arreglo[pos_mayor] = temporal;
             }
+            
         }
-    }
-
-    public static void corrimiento_a_derecha(int[] arreglo, int numero) {
-        int pos = 5;
-        while (pos > 0) {
-            arreglo[pos] = arreglo[pos - 1];
-            pos--;
-        }
-        arreglo[pos] = numero;
     }
 
     public static void cargar_matriz(int[][] mat) {
@@ -99,5 +86,4 @@ public class EjercicioM7 {
         }
         System.out.println("");
     }
-
 }
