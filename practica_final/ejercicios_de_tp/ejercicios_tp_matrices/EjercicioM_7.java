@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Random;
 
-public class EjercicioM7 {
+public class EjercicioM_7 {
     public static final int MAXFILA = 5;
     public static final int MAXCOLUMNA = 10;
     public static final int MAXVALOR = 9;
