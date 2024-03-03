@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PrefinalAnioPasado",
+            "request": "launch",
+            "mainClass": "practica_final.examenes.PrefinalAnioPasado",
+            "projectName": "Prog-1_5a458d5"
+        },
+        {
+            "type": "java",
             "name": "EjemplosDeInvertirArreglo",
             "request": "launch",
             "mainClass": "practica_final.ejercicios_de_tp.ejercicio_tp_arreglos.EjemplosDeInvertirArreglo",
