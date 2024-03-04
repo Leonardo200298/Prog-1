@@ -47,7 +47,7 @@ public class PrefinalAnioPasado {
 
     public static void recorrer_secuencias_encriptadas(char[][] documento) {
         int cantSecuenciasEncriptadas = 0;
-        for (int fila = 0; fila < documento.length; fila++) {
+        for (int fila = 0; fila < N; fila++) {
             cantSecuenciasEncriptadas += salto_en_secuencias_encriptadas(documento[fila]);
         }
         System.out.println("La cantidad de secuencias encriptadas es: " + cantSecuenciasEncriptadas);
@@ -61,24 +61,27 @@ public class PrefinalAnioPasado {
             fin = buscar_fin(arregloDocumento, ini);
             if (ini < M) {
                 if (esNombrePropio(arregloDocumento[ini])) {
-                    encriptar(arregloDocumento, ini, fin);
+                    System.out.println("INIS: " + (arregloDocumento[ini]));
+                    invertirDocumento(arregloDocumento,ini,fin);
+                   
+                    duplicar_consonantes(arregloDocumento,ini,fin);
+                    contadorDeSecuenciasEncriptadas++;
                 }
             }
-            ini = buscar_inicio(arregloDocumento, fin+1);
+            ini = buscar_inicio(arregloDocumento, fin + 1);
         }
         return contadorDeSecuenciasEncriptadas;
     }
 
-    public static void encriptar(char[] arregloDocumento, int ini, int fin) {
-       invertirDocumento(arregloDocumento,ini,fin);
-       duplicar_consonantes(arregloDocumento,ini,fin);
-    }
+ 
 
     public static void duplicar_consonantes(char[] arregloDocumento, int ini, int fin) {
+        char copia = arregloDocumento[ini];
         for (int i = ini; i < fin; i++) {
-            if (esNombrePropio(arregloDocumento[ini])) {
+            if (noEsVocal(arregloDocumento[ini])) {
+                
                 corrimiento_derecha(arregloDocumento,ini);
-                arregloDocumento[ini] = arregloDocumento[ini];
+                arregloDocumento[ini] = copia;
             }
         }
     }
@@ -109,11 +112,18 @@ public class PrefinalAnioPasado {
         }
     }
 
-    public static boolean esNombrePropio(char consonanteMayuscula) {
-        return consonanteMayuscula >= 'A' || consonanteMayuscula <= 'Z' || consonanteMayuscula >= 'a' || consonanteMayuscula <= 'z';
+    public static boolean noEsVocal(char vocal) {
+        return vocal != 'a' || vocal != 'e'
+        || vocal != 'i' || vocal != 'o' || vocal != 'u';
     }
-    /* public static boolean esConsonante (char ) */
 
+    public static boolean esNombrePropio(char consonanteMayuscula) {
+        return consonanteMayuscula != 'A' && consonanteMayuscula != 'E'
+        && consonanteMayuscula != 'I' && consonanteMayuscula != 'O' && consonanteMayuscula != 'U' &&
+        consonanteMayuscula != 'a' && consonanteMayuscula != 'e'
+        && consonanteMayuscula != 'i' && consonanteMayuscula != 'o' && consonanteMayuscula != 'u'
+        ;
+    }
     public static int buscar_fin(char[] arregloDocumento, int ini) {
         while (ini < M && arregloDocumento[ini] != SEPARADOR) {
             ini ++;

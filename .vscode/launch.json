@@ -9,6 +9,13 @@
             "name": "PrefinalAnioPasado",
             "request": "launch",
             "mainClass": "practica_final.examenes.PrefinalAnioPasado",
+            "projectName": "Prog-1_7851d77f"
+        },
+        {
+            "type": "java",
+            "name": "PrefinalAnioPasado",
+            "request": "launch",
+            "mainClass": "practica_final.examenes.PrefinalAnioPasado",
             "projectName": "Prog-1_5a458d5"
         },
         {
