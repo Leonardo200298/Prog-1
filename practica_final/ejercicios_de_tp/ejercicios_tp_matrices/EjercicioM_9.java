@@ -42,7 +42,6 @@ public class EjercicioM_9 {
     }
 
     public static void ordenar_entre_columna_inicio_y_columna_fin(int[] arreglo, int columnaIni, int columnaFin) {
-        System.out.println("La longitud de la fila es: " + arreglo.length);
         int pos_mayor, temporal;
         for (int i = columnaIni; i < columnaFin; i++) {
             pos_mayor = i;
