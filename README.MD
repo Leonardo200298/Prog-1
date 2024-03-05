@@ -27,4 +27,6 @@ Bienvenido a la guía de ejercicios de la materia Programación I de la Tecnicat
 
 </p>
 
+
+
 <footer>Nuevamente gracias por leer y que tengan un buen dia!!</footer>
