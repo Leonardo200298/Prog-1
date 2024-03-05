@@ -20,3 +20,11 @@ Bienvenido a la guía de ejercicios de la materia Programación I de la Tecnicat
     <li> Entornos de desarrollo, Compilación y Ejecución: orientación en entornos de desarrollo, procesos de compilación y ejecución.</li>
 
 </ul>
+
+### Ejercicios
+
+<p>Este repositorio contiene una colección de ejercicios resueltos que abarcan los temas mencionados anteriormente. Puedes encontrar prácticos de años anteriores, un prefinal, y otros recursos útiles para reforzar tus habilidades en Java y algoritmos.
+
+</p>
+
+<footer>Nuevamente gracias por leer y que tengan un buen dia!!</footer>
