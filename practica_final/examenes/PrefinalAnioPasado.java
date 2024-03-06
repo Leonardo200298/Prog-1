@@ -91,8 +91,14 @@ public class PrefinalAnioPasado {
     }
 
     public static void corrimiento_derecha(char[] arregloDocumento, int ini) {
-        for (int pos = M - 1; pos > ini; pos--){
+     /*    for (int pos = M - 1; pos > ini; pos--){
             arregloDocumento[pos] = arregloDocumento[pos - 1];
+        } */
+        int pos = M - 1;
+        while (pos > ini) {
+            arregloDocumento[pos] = arregloDocumento[pos - 1];
+            pos --;
+
         }
     } 
 
