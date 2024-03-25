@@ -40,9 +40,9 @@ public class EjemploEliminacionDeSecuenciaEnMatriz {
     }
 
     public static void eliminar_secuencia(int[] arreglo, int ini, int fin) {
-        for (int i = ini; i <= fin; i++) {
+        for (int i = ini; i <= fin - 1; i++) {
             corrimiento_izq(arreglo,ini);
-            ini ++;
+            
         }
     }
 
