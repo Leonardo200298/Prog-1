@@ -1,4 +1,4 @@
-package practica_final.examenes;
+
 
 public class PrefinalAnioPasado {
     public final static int N = 4;
