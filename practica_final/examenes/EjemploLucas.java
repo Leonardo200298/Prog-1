@@ -52,10 +52,13 @@ public class EjemploLucas {
     public static boolean existe(int[] arrayB,int valor) {
         int ite = 0;
         boolean sonIguales = false;
-        while (ite < MAXB && arrayB[ite] != valor) {
+        while (ite < MAXB && !sonIguales) {
+            if (arrayB[ite] != valor) {
+                sonIguales = true;
+                
+            }
             ite++;
         }
-        sonIguales = true;
         return sonIguales;
     }
     public static int buscar_fin(int[] arreglo, int ini) {
