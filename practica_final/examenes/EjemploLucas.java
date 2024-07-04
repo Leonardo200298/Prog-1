@@ -19,8 +19,7 @@ public class EjemploLucas {
                 }
              
             }
-             // aca si buscas el inicio de la nueva secuencia y la anterior se
-                                                // eliminó debes tener otro fin no el anterior.
+           
         }
                                             
         imprimir_arreglo_int(arrayA);
